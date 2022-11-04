@@ -1,4 +1,3 @@
-// import '../styles/globals.css';
 import { css } from '@emotion/react';
 
 function MyApp({ Component, pageProps }) {
