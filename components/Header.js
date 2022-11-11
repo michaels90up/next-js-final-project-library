@@ -20,9 +20,15 @@ export default function Header() {
     <header>
       <nav css={navStyles}>
         <div>
-          <Image></Image>
+          {/*  <Image
+        src="/logo.jpeg"
+        width="40"
+        height="40"
+        alt=""
+      />*/}
         </div>
         <div>
+          <Link href="/">Home</Link>
           <Link href="/books">Books</Link>
           <Link href="/categories">Categories</Link>
           <Link href="/booklists">Booklists</Link>

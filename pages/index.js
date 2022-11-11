@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
 // import Footer from '../components/Footer';
 // import Header from '../components/Header';
@@ -12,8 +13,21 @@ export default function Home() {
         <meta name="description" content="" />
       </Head>
       <main>
-        <h2>Create your own library.</h2>
+        <h2>Create your own library</h2>
         <h3>Your books deserve it!</h3>
+        <div>
+          <p>
+            Create your own profile and use all features of the library like
+            adding your books and creating individual booklists.
+          </p>
+          <button>
+            <Link href="/register">Register</Link>
+          </button>
+          <p>You have already created your profile? So just log in: </p>
+          <button>
+            <Link href="/register">Log In</Link>
+          </button>
+        </div>
       </main>
     </>
   );
