@@ -1,9 +1,7 @@
-import { css } from '@emotion/react';
+// import { css } from '@emotion/react';
 import Head from 'next/head';
 import Link from 'next/link';
 
-// import Footer from '../components/Footer';
-// import Header from '../components/Header';
 // import Image from 'next/image';
 
 export default function Home() {
