@@ -1,5 +1,7 @@
 import Head from 'next/head';
 
+// import Footer from '../components/Footer';
+// import Header from '../components/Header';
 // import Image from 'next/image';
 
 export default function Home() {
@@ -7,13 +9,11 @@ export default function Home() {
     <>
       <Head>
         <title>Private Library</title>
-        <meta
-          name="description"
-          content="Overview of all sculptures for sale"
-        />
+        <meta name="description" content="" />
       </Head>
       <main>
-        <h1>Sculptures for everyone</h1>
+        <h2>Create your own library.</h2>
+        <h3>Your books deserve it!</h3>
       </main>
     </>
   );
