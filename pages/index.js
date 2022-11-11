@@ -4,12 +4,17 @@ import Head from 'next/head';
 
 export default function Home() {
   return (
-    <div>
-      <Head></Head>
-
-      <main></main>
-
-      <footer></footer>
-    </div>
+    <>
+      <Head>
+        <title>Private Library</title>
+        <meta
+          name="description"
+          content="Overview of all sculptures for sale"
+        />
+      </Head>
+      <main>
+        <h1>Sculptures for everyone</h1>
+      </main>
+    </>
   );
 }

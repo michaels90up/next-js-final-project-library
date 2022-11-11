@@ -1,7 +1,21 @@
-import { css } from '@emotion/react';
+import { css, Global } from '@emotion/react';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+function MyApp() {
+  return (
+    <>
+      <Global
+        styles={css`
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+          body {
+          }
+        `}
+      />
+    </>
+  );
 }
 
 export default MyApp;
