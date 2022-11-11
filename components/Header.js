@@ -4,14 +4,18 @@ import Link from 'next/link';
 
 const navStyles = css`
   background-color: #f5b87f;
-  margin: 20px 10px;
   padding: 5px;
   display: flex;
-  height: 90px;
+  height: 80px;
   width: auto;
-  justify-content: start;
   > a + a {
-    margin-left: 13px;
+    margin-left: 20px;
+  }
+  > div {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    gap: 30px;
   }
 `;
 
