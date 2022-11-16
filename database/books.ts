@@ -7,7 +7,6 @@ export type Book = {
   year: number;
   category: string | null;
   language: string;
-  cover_URL: string;
 };
 
 export async function createBook(
@@ -16,13 +15,12 @@ export async function createBook(
   year: number,
   category: string | null,
   language: string,
-  cover_URL: string,
 ) {
   const [book] = await sql<Book[]>`
     INSERT INTO books
-      (title, author, year, category, language, cover_URL)
+      (title, author, year, category, language)
     VALUES
-      (${title}, ${author}, ${year}, ${category}, ${language}, ${cover_URL})
+      (${title}, ${author}, ${year}, ${category}, ${language})
     RETURNING *
   `;
   return book;
