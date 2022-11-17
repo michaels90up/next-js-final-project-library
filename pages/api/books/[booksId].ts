@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import {
   deleteBookById,
   getBookById,
-  getBookByIdAndValidSessionToken,
   updateBookById,
 } from '../../../database/books';
 import { getValidSessionByToken } from '../../../database/sessions';
