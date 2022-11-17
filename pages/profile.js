@@ -14,9 +14,13 @@ export default function Profile() {
       </Head>
       <main>
         <h3>Profile</h3>
+        <hr />
         <ul>Go to the library</ul>
+        {/*Image with Link*/}
         <ul>Look for categories</ul>
+        {/*Image with Link*/}
         <ul>Go to booklists</ul>
+        {/*Image with Link*/}
       </main>
     </>
   );
