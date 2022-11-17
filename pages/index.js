@@ -24,7 +24,7 @@ export default function Home() {
           </button>
           <p>You have already created your profile? So just log in: </p>
           <button>
-            <Link href="/register">Log In</Link>
+            <Link href="/login">Log In</Link>
           </button>
         </div>
       </main>

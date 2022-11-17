@@ -4,17 +4,17 @@ export type Book = {
   id: number;
   title: string;
   author: string;
-  year: number;
+  year: number | null;
   category: string | null;
-  language: string;
+  language: string | null;
 };
 
 export async function createBook(
   title: string,
   author: string,
-  year: number,
+  year: number | null,
   category: string | null,
-  language: string,
+  language: string | null,
 ) {
   const [book] = await sql<Book[]>`
     INSERT INTO books

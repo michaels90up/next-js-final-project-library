@@ -10,11 +10,10 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.12",
-    "@types/bcrypt": "^5.0.0",
-    "@types/dotenv-safe": "^8.1.2",
     "bcrypt": "^5.1.0",
+    "cookie": "^0.5.0",
+    "csrf": "^3.1.0",
     "dotenv-safe": "^8.2.0",
     "ley": "^0.8.1",
     "next": "13.0.0",
@@ -24,8 +23,11 @@
     "sharp": "^0.31.1"
   },
   "devDependencies": {
+    "@types/cookie": "^0.5.1",
     "@types/node": "18.11.9",
     "@upleveled/eslint-config-upleveled": "^3.3.9",
+    "@types/bcrypt": "^5.0.0",
+    "@types/dotenv-safe": "^8.1.2",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
     "typescript": "4.8.4"
