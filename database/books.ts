@@ -44,7 +44,6 @@ export async function getBookByIdAndValidSessionToken(
   token: string | undefined,
 ) {
   if (!token) return undefined;
-  // next step: Implementation of admin role
   const [book] = await sql<Book[]>`
     SELECT
       books.*
