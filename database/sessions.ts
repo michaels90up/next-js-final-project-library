@@ -40,13 +40,13 @@ export async function getValidSessionByToken(token: Session['token']) {
       sessions
     WHERE
       sessions.token = ${token}
+    AND
+    sessions.expiry_timestamp > now()
 
   `;
 
   return session;
 }
-//  AND
-//      sessions.expiry_timestamp > now()
 
 export async function deleteExpiredSessions() {
   const sessions = await sql<Session[]>`

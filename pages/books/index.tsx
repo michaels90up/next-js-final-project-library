@@ -267,11 +267,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Retrieve the username from the URL
   const token = context.req.cookies.sessionToken;
 
-  console.log(token);
+  // console.log(token);
 
   const session = token && (await getValidSessionByToken(token));
 
-  console.log(session);
+  // console.log(session);
 
   if (!session) {
     context.res.statusCode = 401;
