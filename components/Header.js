@@ -9,7 +9,7 @@ const navStyles = css`
   height: 80px;
   width: auto;
   > a + a {
-    margin-left: 20px;
+    margin-left: 40px;
   }
   > div {
     display: flex;
@@ -24,19 +24,13 @@ export default function Header() {
     <header>
       <nav css={navStyles}>
         <div>
-          {/*  <Image
-        src="/logo.jpeg"
-        width="40"
-        height="40"
-        alt=""
-      />*/}
-        </div>
-        <div>
+          <Image src="/logo.jpg" width={120} height={70} alt="library logo" />
           <Link href="/">Home</Link>
           <Link href="/books">Books</Link>
           <Link href="/categories">Categories</Link>
           <Link href="/booklists">Booklists</Link>
           <Link href="/profile">Profile</Link>
+          <Link href="/logout">Logout</Link>
         </div>
       </nav>
     </header>

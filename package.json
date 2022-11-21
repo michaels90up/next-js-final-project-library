@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
-    "@mui/material": "^5.10.12",
     "bcrypt": "^5.1.0",
     "cookie": "^0.5.0",
     "csrf": "^3.1.0",
@@ -25,11 +24,13 @@
     "sharp": "^0.31.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.28.0",
     "@types/bcrypt": "^5.0.0",
     "@types/cookie": "^0.5.1",
     "@types/dotenv-safe": "^8.1.2",
     "@types/jest": "^29.2.3",
     "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
     "@upleveled/eslint-config-upleveled": "^3.3.9",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",

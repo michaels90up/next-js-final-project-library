@@ -41,19 +41,17 @@ export default async function handler(
   // prevent the endpoint to be accessed by cross site requests
   const csrfToken = request.body?.csrfToken;
 
-  if (!(await validateTokenWithSecret(session.csrfSecret, csrfToken))) {
+  if (!validateTokenWithSecret(session.csrfSecret, csrfToken)) {
     return response.status(401).json({ message: 'csrf_token is not valid' });
   }
 
   if (request.method === 'PUT') {
-    // NOT getting the id from the body since is already on the query
     const title = request.body?.title;
     const author = request.body?.author;
     const year = request.body?.year;
     const category = request.body?.category;
     const language = request.body?.language;
 
-    // Check all the information to create the animal exists
     if (!(title && author)) {
       return response
         .status(400)
@@ -75,7 +73,7 @@ export default async function handler(
       return response.status(404).json({ message: 'Not a valid Id' });
     }
 
-    // response with the new created animal
+    // response with the new created book
     return response.status(200).json(newBook);
   }
 

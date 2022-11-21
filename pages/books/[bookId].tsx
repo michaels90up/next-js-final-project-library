@@ -38,12 +38,7 @@ export default function SingleBook(props: Props) {
         />
       </Head>
       <h2>{props.book.title}</h2>
-      {/* <Image
-        src={`/${props.animal.id}-${props.animal.firstName.toLowerCase()}.jpeg`}
-        alt=""
-        width="400"
-        height="400"
-  />*/}
+      {/* <Image"/>*/}
       <div>Author: {props.book.author}</div>
       <div>Year: {props.book.year}</div>
       <div>Category: {props.book.category}</div>

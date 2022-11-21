@@ -41,7 +41,7 @@ export default async function handler(
     const language = request.body?.language;
     const csrfToken = request.body?.csrfToken;
 
-    if (!(await validateTokenWithSecret(session.csrfSecret, csrfToken))) {
+    if (!validateTokenWithSecret(session.csrfSecret, csrfToken)) {
       return response.status(401).json({ message: 'csrf_token is not valid' });
     }
 

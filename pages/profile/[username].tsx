@@ -1,6 +1,14 @@
+import { css } from '@emotion/react';
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 import { getUserByUsername, User } from '../../database/users';
+
+const divStyles = css`
+  display: flex;
+  justify-content: left;
+`;
 
 type Props = {
   user?: User;
@@ -27,7 +35,21 @@ export default function UserProfile(props: Props) {
         <meta name="description" content="Biography of the person" />
       </Head>
       <h1>Personal Information</h1>
-      id: {props.user.id} username: {props.user.username}
+      <h2>username: {props.user.username}</h2>
+      <div css={divStyles}>
+        <ul>Go to the library</ul>
+        <Link href="/books">
+          <Image src="/logo.jpg" width={200} height={200} alt="" />
+        </Link>
+        <ul>Look for categories</ul>
+        <Link href="/categories">
+          <Image src="/logo.jpg" width={200} height={200} alt="" />
+        </Link>
+        <ul>Go to booklists</ul>
+        <Link href="/booklists">
+          <Image src="/logo.jpg" width={200} height={200} alt="" />
+        </Link>
+      </div>
     </>
   );
 }
