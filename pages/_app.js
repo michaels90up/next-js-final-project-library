@@ -15,7 +15,6 @@ function MyApp({ Component, pageProps }) {
           }
           body {
             font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-            margin: 20px 10px;
           }
         `}
       />

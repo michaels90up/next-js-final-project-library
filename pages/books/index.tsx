@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button';
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import { Fragment, useState } from 'react';
 import { Book, getAllBooksWithLimit } from '../../database/books';
 import { getValidSessionByToken } from '../../database/sessions';
@@ -151,8 +152,11 @@ export default function BooksAdmin(props: Props) {
         Year
         <br />
         <input
+          type="number"
           value={yearInput}
+          min={0}
           onChange={(event) => {
+            if (!event.currentTarget) return;
             setYearInput(Number(event.currentTarget.value));
           }}
         />
@@ -193,11 +197,15 @@ export default function BooksAdmin(props: Props) {
         size="small"
         onClick={async () => {
           await createBookFromApi();
+          setTitleInput('');
+          setAuthorInput('');
+          setYearInput(undefined);
+          setCategoryInput('');
+          setLanguageInput('');
         }}
       >
         Add Book
       </Button>
-
       <hr />
 
       {books.map((book) => {
@@ -205,13 +213,15 @@ export default function BooksAdmin(props: Props) {
 
         return (
           <Fragment key={book.id}>
-            <input
-              value={isBookOnEdit ? titleOnEditInput : book.title}
-              disabled={!isBookOnEdit}
-              onChange={(event) => {
-                setTitleOnEditInput(event.currentTarget.value);
-              }}
-            />
+            <Link href={`/books/${book.id}`}>
+              <input
+                value={isBookOnEdit ? titleOnEditInput : book.title}
+                disabled={!isBookOnEdit}
+                onChange={(event) => {
+                  setTitleOnEditInput(event.currentTarget.value);
+                }}
+              />
+            </Link>
             <input
               value={isBookOnEdit ? authorOnEditInput : book.author}
               disabled={!isBookOnEdit}
@@ -241,7 +251,7 @@ export default function BooksAdmin(props: Props) {
               }}
             />
 
-            <button onClick={() => deleteBookFromApiById(book.id)}>X</button>
+            {/*<button onClick={() => deleteBookFromApiById(book.id)}>X</button>*/}
             {!isBookOnEdit ? (
               <button
                 onClick={() => {

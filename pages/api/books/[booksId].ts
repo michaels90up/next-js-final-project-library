@@ -22,8 +22,8 @@ export default async function handler(
     return;
   }
 
-  const bookId = Number(request.query.bookId);
-
+  const bookId = Number(request.query.booksId);
+  console.log(request.query);
   if (!bookId) {
     return response.status(404).json({ message: 'Not a valid Id' });
   }
