@@ -1,3 +1,4 @@
+import Button from '@mui/material/Button';
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import { Fragment, useState } from 'react';
@@ -156,16 +157,25 @@ export default function BooksAdmin(props: Props) {
           }}
         />
       </label>
-      {/*Change Category to select input with predefined options */}
       <label>
         Category
         <br />
-        <input
+        <select
           value={categoryInput}
           onChange={(event) => {
             setCategoryInput(event.currentTarget.value);
           }}
-        />
+        >
+          <option value="">--No category chosen--</option>
+          <option value="History">History</option>
+          <option value="Politics">Politics</option>
+          <option value="Law">Law</option>
+          <option value="Religion">Religion</option>
+          <option value="Philosophy">Philosophy</option>
+          <option value="Graphic Novel/Comics">Graphic Novel/Comics</option>
+          <option value="Music">Music</option>
+          <option value="Fiction">Fiction</option>
+        </select>
       </label>
       <label>
         Language
@@ -177,13 +187,16 @@ export default function BooksAdmin(props: Props) {
           }}
         />
       </label>
-      <button
+      <Button
+        variant="contained"
+        color="success"
+        size="small"
         onClick={async () => {
           await createBookFromApi();
         }}
       >
         Add Book
-      </button>
+      </Button>
 
       <hr />
 
