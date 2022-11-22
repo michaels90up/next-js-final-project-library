@@ -6,6 +6,7 @@ const categories = [
   { category_name: 'Religion' },
   { category_name: 'Philosophy' },
   { category_name: 'Graphic Novel/Comics' },
+  { category_name: 'Music' },
   { category_name: 'Fiction' },
 ];
 
@@ -14,6 +15,7 @@ export async function up(sql) {
   INSERT INTO categories ${sql(categories, 'category_name')}
 `;
 }
+
 export async function down(sql) {
   for (const category of categories) {
     await sql`

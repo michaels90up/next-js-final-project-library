@@ -43,6 +43,7 @@ export default function SingleBook(props: Props) {
       <div>Year: {props.book.year}</div>
       <div>Category: {props.book.category}</div>
       <div>Language: {props.book.language}</div>
+      {/* <button onClick={() => deleteBookFromApiById(book.id)}>X</button>*/}
     </div>
   );
 }

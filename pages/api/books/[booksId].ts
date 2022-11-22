@@ -23,7 +23,7 @@ export default async function handler(
   }
 
   const bookId = Number(request.query.booksId);
-  console.log(request.query);
+  // console.log(request.query);
   if (!bookId) {
     return response.status(404).json({ message: 'Not a valid Id' });
   }
@@ -38,7 +38,6 @@ export default async function handler(
     return response.status(200).json(book);
   }
 
-  // prevent the endpoint to be accessed by cross site requests
   const csrfToken = request.body?.csrfToken;
 
   if (!validateTokenWithSecret(session.csrfSecret, csrfToken)) {

@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { User } from '../database/users';
 
 const navStyles = css`
   background-color: #f5b87f;
@@ -20,22 +19,18 @@ const navStyles = css`
   }
 `;
 
-type Props = {
-  user?: User;
-};
-
-export default function Header(props: Props) {
+export default function Header() {
   return (
     <header>
       <nav css={navStyles}>
         <div>
-          <Image src="/logo.jpg" width={120} height={60} alt="library logo" />
+          <Image src="/logo.jpg" width={120} height={70} alt="library logo" />
           <Link href="/">Home</Link>
           <Link href="/books">Books</Link>
           <Link href="/categories">Categories</Link>
           <Link href="/booklists">Booklists</Link>
           <Link href="/profile">Profile</Link>
-          {props.user && <Link href="/logout">Logout</Link>}
+          <Link href="/logout">Logout</Link>
         </div>
       </nav>
     </header>

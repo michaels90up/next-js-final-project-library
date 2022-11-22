@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { User } from '../../database/users';
 
 const mainStyles = css`
   margin-top: 30px;
@@ -13,11 +12,7 @@ const divStyles = css`
   justify-content: left;
 `;
 
-type Props = {
-  user: User;
-};
-
-export default function Profile(props: Props) {
+export default function Profile() {
   return (
     <>
       <Head>
@@ -26,7 +21,6 @@ export default function Profile(props: Props) {
       </Head>
       <main css={mainStyles}>
         <h3>Profile</h3>
-        {/*<Link href={`/profile/${props.user.username}`}>Personal Information</Link>*/}
         <hr />
         <div css={divStyles}>
           <ul>Go to the library</ul>

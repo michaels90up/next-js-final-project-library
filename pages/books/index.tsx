@@ -156,7 +156,7 @@ export default function BooksAdmin(props: Props) {
           value={yearInput}
           min={0}
           onChange={(event) => {
-            if (!event.currentTarget) return;
+            /* if (!event.currentTarget) return; */
             setYearInput(Number(event.currentTarget.value));
           }}
         />
@@ -251,7 +251,7 @@ export default function BooksAdmin(props: Props) {
               }}
             />
 
-            {/*<button onClick={() => deleteBookFromApiById(book.id)}>X</button>*/}
+            <button onClick={() => deleteBookFromApiById(book.id)}>X</button>
             {!isBookOnEdit ? (
               <button
                 onClick={() => {

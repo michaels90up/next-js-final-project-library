@@ -24,7 +24,6 @@ export async function createSession(
   `;
 
   await deleteExpiredSessions();
-
   return session!;
 }
 
