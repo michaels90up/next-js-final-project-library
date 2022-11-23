@@ -75,6 +75,9 @@ export default function BooksAdmin(props: Props) {
   async function deleteBookFromApiById(id: number) {
     const response = await fetch(`/api/books/${id}`, {
       method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+      },
       body: JSON.stringify({ csrfToken: props.csrfToken }),
     });
     const deletedBook = (await response.json()) as Book;
@@ -120,7 +123,7 @@ export default function BooksAdmin(props: Props) {
   return (
     <>
       <Head>
-        <title>Placeholder</title>
+        <title>Books</title>
         <meta name="description" content="" />
       </Head>
 
@@ -153,10 +156,10 @@ export default function BooksAdmin(props: Props) {
         <br />
         <input
           type="number"
-          value={yearInput}
+          value={!yearInput && yearInput !== 0 ? '' : yearInput}
           min={0}
           onChange={(event) => {
-            /* if (!event.currentTarget) return; */
+            /* if (!event.currentTarget) return;*/
             setYearInput(Number(event.currentTarget.value));
           }}
         />
@@ -222,6 +225,7 @@ export default function BooksAdmin(props: Props) {
                 }}
               />
             </Link>
+
             <input
               value={isBookOnEdit ? authorOnEditInput : book.author}
               disabled={!isBookOnEdit}
@@ -229,6 +233,7 @@ export default function BooksAdmin(props: Props) {
                 setAuthorOnEditInput(event.currentTarget.value);
               }}
             />
+
             <input
               value={isBookOnEdit ? yearOnEditInput : book.year || ''}
               disabled={!isBookOnEdit}
@@ -236,6 +241,7 @@ export default function BooksAdmin(props: Props) {
                 setYearOnEditInput(Number(event.currentTarget.value));
               }}
             />
+
             <input
               value={isBookOnEdit ? categoryOnEditInput : book.category || ''}
               disabled={!isBookOnEdit}
@@ -243,6 +249,7 @@ export default function BooksAdmin(props: Props) {
                 setCategoryOnEditInput(event.currentTarget.value);
               }}
             />
+
             <input
               value={isBookOnEdit ? languageOnEditInput : book.language || ''}
               disabled={!isBookOnEdit}

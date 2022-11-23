@@ -38,7 +38,9 @@ export default async function handler(
     return response.status(200).json(book);
   }
 
+  // console.log(request.body);
   const csrfToken = request.body?.csrfToken;
+  // console.log(csrfToken);
 
   if (!validateTokenWithSecret(session.csrfSecret, csrfToken)) {
     return response.status(401).json({ message: 'csrf_token is not valid' });
