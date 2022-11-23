@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import Button from '@mui/material/Button';
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
@@ -6,6 +7,11 @@ import { Fragment, useState } from 'react';
 import { Book, getAllBooksWithLimit } from '../../database/books';
 import { getValidSessionByToken } from '../../database/sessions';
 import { createTokenFromSecret } from '../../utils/csrf';
+
+const divStyles = css`
+  display: flex;
+  gap: 10px;
+`;
 
 type Props =
   | {
@@ -128,72 +134,74 @@ export default function BooksAdmin(props: Props) {
       </Head>
 
       <h1>Your Library</h1>
-
-      <label>
-        Title
+      <div css={divStyles}>
+        <label>
+          Title
+          <br />
+          <input
+            value={titleInput}
+            onChange={(event) => {
+              setTitleInput(event.currentTarget.value);
+            }}
+          />
+        </label>
         <br />
-        <input
-          value={titleInput}
-          onChange={(event) => {
-            setTitleInput(event.currentTarget.value);
-          }}
-        />
-      </label>
+        <label>
+          Author
+          <br />
+          <input
+            value={authorInput}
+            onChange={(event) => {
+              setAuthorInput(event.currentTarget.value);
+            }}
+          />
+        </label>
+        <br />
+        <label>
+          Year
+          <br />
+          <input
+            type="number"
+            value={!yearInput && yearInput !== 0 ? '' : yearInput}
+            min={0}
+            onChange={(event) => {
+              /* if (!event.currentTarget) return;*/
+              setYearInput(Number(event.currentTarget.value));
+            }}
+          />
+        </label>
+        <label>
+          Category
+          <br />
+          <select
+            value={categoryInput}
+            onChange={(event) => {
+              setCategoryInput(event.currentTarget.value);
+            }}
+          >
+            <option value="">--No category chosen--</option>
+            <option value="History">History</option>
+            <option value="Politics">Politics</option>
+            <option value="Law">Law</option>
+            <option value="Religion">Religion</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="Graphic Novel/Comics">Graphic Novel/Comics</option>
+            <option value="Music">Music</option>
+            <option value="Fiction">Fiction</option>
+          </select>
+        </label>
+        <label>
+          Language
+          <br />
+          <input
+            value={languageInput}
+            onChange={(event) => {
+              setLanguageInput(event.currentTarget.value);
+            }}
+          />
+        </label>
+      </div>
       <br />
-      <label>
-        Author
-        <br />
-        <input
-          value={authorInput}
-          onChange={(event) => {
-            setAuthorInput(event.currentTarget.value);
-          }}
-        />
-      </label>
-      <br />
-      <label>
-        Year
-        <br />
-        <input
-          type="number"
-          value={!yearInput && yearInput !== 0 ? '' : yearInput}
-          min={0}
-          onChange={(event) => {
-            /* if (!event.currentTarget) return;*/
-            setYearInput(Number(event.currentTarget.value));
-          }}
-        />
-      </label>
-      <label>
-        Category
-        <br />
-        <select
-          value={categoryInput}
-          onChange={(event) => {
-            setCategoryInput(event.currentTarget.value);
-          }}
-        >
-          <option value="">--No category chosen--</option>
-          <option value="History">History</option>
-          <option value="Politics">Politics</option>
-          <option value="Law">Law</option>
-          <option value="Religion">Religion</option>
-          <option value="Philosophy">Philosophy</option>
-          <option value="Graphic Novel/Comics">Graphic Novel/Comics</option>
-          <option value="Music">Music</option>
-          <option value="Fiction">Fiction</option>
-        </select>
-      </label>
-      <label>
-        Language
-        <br />
-        <input
-          value={languageInput}
-          onChange={(event) => {
-            setLanguageInput(event.currentTarget.value);
-          }}
-        />
-      </label>
       <Button
         variant="contained"
         color="success"
@@ -286,6 +294,7 @@ export default function BooksAdmin(props: Props) {
           </Fragment>
         );
       })}
+      <br />
       {books.length < 11 && (
         <button onClick={() => getBooksFromApi()}>Show more than 10</button>
       )}
@@ -294,7 +303,6 @@ export default function BooksAdmin(props: Props) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  // Retrieve the username from the URL
   const token = context.req.cookies.sessionToken;
 
   // console.log(token);

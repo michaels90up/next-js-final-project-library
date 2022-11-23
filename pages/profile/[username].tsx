@@ -31,7 +31,7 @@ export default function UserProfile(props: Props) {
   return (
     <>
       <Head>
-        <title>Personal Information</title>
+        <title>Personal Profile</title>
         <meta name="description" content="Biography of the person" />
       </Head>
       <h1>Personal Information</h1>

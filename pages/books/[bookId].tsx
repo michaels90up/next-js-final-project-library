@@ -23,7 +23,7 @@ export default function SingleBook(props: Props) {
           <meta name="description" content="Book not found" />
         </Head>
         <h1>{props.error}</h1>
-        Sorry, try the <Link href="/books">animals page</Link>
+        Sorry, try the <Link href="/books">books page</Link>
       </div>
     );
   }
