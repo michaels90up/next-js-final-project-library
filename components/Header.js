@@ -19,7 +19,12 @@ const navStyles = css`
   }
 `;
 
-export default function Header() {
+function Anchor({ children, ...props }) {
+  // using a instead of Link since we want to force a full refresh
+  return <a {...props}>{children}</a>;
+}
+
+export default function Header(props) {
   return (
     <header>
       <nav css={navStyles}>
@@ -30,7 +35,20 @@ export default function Header() {
           <Link href="/categories">Categories</Link>
           <Link href="/booklists">Booklists</Link>
           <Link href="/profile">Profile</Link>
-          <Link href="/logout">Logout</Link>
+          {props.user ? (
+            <Anchor
+              css={css`
+                margin-left: 10px;
+              `}
+              href="/logout"
+            >
+              Logout
+            </Anchor>
+          ) : (
+            <div />
+          )}
+
+          {/* <Link href="/logout">Logout</Link> */}
         </div>
       </nav>
     </header>
