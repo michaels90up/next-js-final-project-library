@@ -9,7 +9,7 @@ const mainStyles = css`
 
 const divStyles = css`
   display: flex;
-  justify-content: left;
+  justify-content: space-evenly;
 `;
 
 export default function Profile() {
@@ -21,30 +21,35 @@ export default function Profile() {
       </Head>
       <main css={mainStyles}>
         <h3>Profile</h3>
-        <hr />
         <div css={divStyles}>
-          <ul>Go to the library</ul>
-          <Link href="/books">
-            <Image src="/library-books.jpg" width={200} height={200} alt="" />
-          </Link>
-          <ul>Look for categories</ul>
-          <Link href="/categories">
-            <Image
-              src="/library-categories.jpg"
-              width={200}
-              height={200}
-              alt=""
-            />
-          </Link>
-          <ul>Go to booklists</ul>
-          <Link href="/booklists">
-            <Image
-              src="/library-booklists.jpg"
-              width={200}
-              height={200}
-              alt=""
-            />
-          </Link>
+          <div>
+            <ul>Visit the library</ul>
+            <Link href="/books">
+              <Image src="/library-books.jpg" width={200} height={200} alt="" />
+            </Link>
+          </div>
+          <div>
+            <ul>See all categories</ul>
+            <Link href="/categories">
+              <Image
+                src="/library-categories.jpg"
+                width={200}
+                height={200}
+                alt=""
+              />
+            </Link>
+          </div>
+          <div>
+            <ul>Create booklists</ul>
+            <Link href="/booklists">
+              <Image
+                src="/library-booklists.jpg"
+                width={200}
+                height={200}
+                alt=""
+              />
+            </Link>
+          </div>
         </div>
       </main>
     </>

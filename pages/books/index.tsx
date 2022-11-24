@@ -10,7 +10,11 @@ import { createTokenFromSecret } from '../../utils/csrf';
 
 const divStyles = css`
   display: flex;
-  gap: 10px;
+  gap: 2.5px;
+`;
+
+const fragmentStyles = css`
+  display: flex;
 `;
 
 type Props =
@@ -133,7 +137,7 @@ export default function BooksAdmin(props: Props) {
         <meta name="description" content="" />
       </Head>
 
-      <h1>Your Library</h1>
+      <h2>Your Library</h2>
       <div css={divStyles}>
         <label>
           Title
@@ -217,86 +221,113 @@ export default function BooksAdmin(props: Props) {
       >
         Add Book
       </Button>
-      <hr />
+      <br />
+      <br />
 
       {books.map((book) => {
         const isBookOnEdit = onEditId === book.id;
 
         return (
           <Fragment key={book.id}>
-            <Link href={`/books/${book.id}`}>
+            <div css={fragmentStyles}>
+              <Link href={`/books/${book.id}`} css={fragmentStyles}>
+                <input
+                  value={isBookOnEdit ? titleOnEditInput : book.title}
+                  disabled={!isBookOnEdit}
+                  onChange={(event) => {
+                    setTitleOnEditInput(event.currentTarget.value);
+                  }}
+                />
+              </Link>
+
               <input
-                value={isBookOnEdit ? titleOnEditInput : book.title}
+                value={isBookOnEdit ? authorOnEditInput : book.author}
                 disabled={!isBookOnEdit}
                 onChange={(event) => {
-                  setTitleOnEditInput(event.currentTarget.value);
+                  setAuthorOnEditInput(event.currentTarget.value);
                 }}
               />
-            </Link>
 
-            <input
-              value={isBookOnEdit ? authorOnEditInput : book.author}
-              disabled={!isBookOnEdit}
-              onChange={(event) => {
-                setAuthorOnEditInput(event.currentTarget.value);
-              }}
-            />
-
-            <input
-              value={isBookOnEdit ? yearOnEditInput : book.year || ''}
-              disabled={!isBookOnEdit}
-              onChange={(event) => {
-                setYearOnEditInput(Number(event.currentTarget.value));
-              }}
-            />
-
-            <input
-              value={isBookOnEdit ? categoryOnEditInput : book.category || ''}
-              disabled={!isBookOnEdit}
-              onChange={(event) => {
-                setCategoryOnEditInput(event.currentTarget.value);
-              }}
-            />
-
-            <input
-              value={isBookOnEdit ? languageOnEditInput : book.language || ''}
-              disabled={!isBookOnEdit}
-              onChange={(event) => {
-                setLanguageOnEditInput(event.currentTarget.value);
-              }}
-            />
-
-            <button onClick={() => deleteBookFromApiById(book.id)}>X</button>
-            {!isBookOnEdit ? (
-              <button
-                onClick={() => {
-                  setOnEditId(book.id);
-                  setTitleOnEditInput(book.title);
-                  setAuthorOnEditInput(book.author);
-                  setYearOnEditInput(Number(book.year));
-                  setCategoryOnEditInput(book.category || '');
-                  setLanguageOnEditInput(book.language || '');
+              <input
+                value={isBookOnEdit ? yearOnEditInput : book.year || ''}
+                disabled={!isBookOnEdit}
+                onChange={(event) => {
+                  setYearOnEditInput(Number(event.currentTarget.value));
                 }}
-              >
-                edit
-              </button>
-            ) : (
-              <button
-                onClick={async () => {
-                  setOnEditId(undefined);
-                  await updateBookFromApiById(book.id);
+              />
+
+              <input
+                value={isBookOnEdit ? categoryOnEditInput : book.category || ''}
+                disabled={!isBookOnEdit}
+                onChange={(event) => {
+                  setCategoryOnEditInput(event.currentTarget.value);
                 }}
+              />
+
+              <input
+                value={isBookOnEdit ? languageOnEditInput : book.language || ''}
+                disabled={!isBookOnEdit}
+                onChange={(event) => {
+                  setLanguageOnEditInput(event.currentTarget.value);
+                }}
+              />
+
+              {!isBookOnEdit ? (
+                <Button
+                  variant="outlined"
+                  href="#outlined-buttons"
+                  color="secondary"
+                  size="small"
+                  onClick={() => {
+                    setOnEditId(book.id);
+                    setTitleOnEditInput(book.title);
+                    setAuthorOnEditInput(book.author);
+                    setYearOnEditInput(Number(book.year));
+                    setCategoryOnEditInput(book.category || '');
+                    setLanguageOnEditInput(book.language || '');
+                  }}
+                >
+                  edit
+                </Button>
+              ) : (
+                <Button
+                  variant="outlined"
+                  href="#outlined-buttons"
+                  color="secondary"
+                  size="small"
+                  onClick={async () => {
+                    setOnEditId(undefined);
+                    await updateBookFromApiById(book.id);
+                  }}
+                >
+                  save
+                </Button>
+              )}
+              <Button
+                variant="outlined"
+                href="#outlined-buttons"
+                color="error"
+                size="small"
+                onClick={() => deleteBookFromApiById(book.id)}
               >
-                save
-              </button>
-            )}
-            <br />
+                X
+              </Button>
+              <br />
+            </div>
           </Fragment>
         );
       })}
       <br />
       {books.length < 11 && (
-        <button onClick={() => getBooksFromApi()}>Show more than 10</button>
+        <Button
+          variant="outlined"
+          href="#outlined-buttons"
+          color="secondary"
+          size="small"
+          onClick={() => getBooksFromApi()}
+        >
+          Show more than 10
+        </Button>
       )}
     </>
   );

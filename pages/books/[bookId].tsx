@@ -1,4 +1,4 @@
-// import { css } from '@emotion/react';
+import { css } from '@emotion/react';
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
 // import Image from 'next/image';
@@ -13,6 +13,15 @@ type Props =
   | {
       error: string;
     };
+
+const singleBookStyles = css`
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  gap: 4px;
+  border: solid;
+  border-color: #f5b87f;
+`;
 
 export default function SingleBook(props: Props) {
   if ('error' in props) {
@@ -37,12 +46,14 @@ export default function SingleBook(props: Props) {
           content={`${props.book.title} from ${props.book.author}`}
         />
       </Head>
-      <h2>{props.book.title}</h2>
-      {/* <Image"/>*/}
-      <div>Author: {props.book.author}</div>
-      <div>Year: {props.book.year}</div>
-      <div>Category: {props.book.category}</div>
-      <div>Language: {props.book.language}</div>
+
+      <h2>Title: {props.book.title}</h2>
+      <div css={singleBookStyles}>
+        <div>Author: {props.book.author}</div>
+        <div>Year: {props.book.year}</div>
+        <div>Category: {props.book.category}</div>
+        <div>Language: {props.book.language}</div>
+      </div>
       {/* <button onClick={() => deleteBookFromApiById(book.id)}>X</button>*/}
     </div>
   );

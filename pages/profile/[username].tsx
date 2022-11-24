@@ -7,7 +7,7 @@ import { getUserByUsername, User } from '../../database/users';
 
 const divStyles = css`
   display: flex;
-  justify-content: left;
+  justify-content: space-evenly;
 `;
 
 type Props = {
@@ -34,26 +34,37 @@ export default function UserProfile(props: Props) {
         <title>Personal Profile</title>
         <meta name="description" content="Biography of the person" />
       </Head>
-      <h1>Personal Information</h1>
-      <h2>username: {props.user.username}</h2>
+      <h1>Personal Profile</h1>
+      <h2>Username: {props.user.username}</h2>
       <div css={divStyles}>
-        <ul>Go to the library</ul>
-        <Link href="/books">
-          <Image src="/library-books.jpg" width={200} height={200} alt="" />
-        </Link>
-        <ul>Look for categories</ul>
-        <Link href="/categories">
-          <Image
-            src="/library-categories.jpg"
-            width={200}
-            height={200}
-            alt=""
-          />
-        </Link>
-        <ul>Go to booklists</ul>
-        <Link href="/booklists">
-          <Image src="/library-booklists.jpg" width={200} height={200} alt="" />
-        </Link>
+        <div>
+          <ul>Go to the library</ul>
+          <Link href="/books">
+            <Image src="/library-books.jpg" width={200} height={200} alt="" />
+          </Link>
+        </div>
+        <div>
+          <ul>See all categories</ul>
+          <Link href="/categories">
+            <Image
+              src="/library-categories.jpg"
+              width={200}
+              height={200}
+              alt=""
+            />
+          </Link>
+        </div>
+        <div>
+          <ul>Go to booklists</ul>
+          <Link href="/booklists">
+            <Image
+              src="/library-booklists.jpg"
+              width={200}
+              height={200}
+              alt=""
+            />
+          </Link>
+        </div>
       </div>
     </>
   );

@@ -3,10 +3,6 @@ import Button from '@mui/material/Button';
 import Head from 'next/head';
 import Link from 'next/link';
 
-const mainStyles = css`
-  justify-items: center;
-`;
-
 const registerAndLoginStyles = css`
   display: flex;
   flex-direction: column;
@@ -16,8 +12,6 @@ const registerAndLoginStyles = css`
   }
 `;
 
-// import Image from 'next/image';
-
 export default function Home() {
   return (
     <>
@@ -25,10 +19,10 @@ export default function Home() {
         <title>Private Library</title>
         <meta name="description" content="" />
       </Head>
-      <main css={mainStyles}>
-        <h2>Create your own library</h2>
+      <main css={registerAndLoginStyles}>
+        <h1>Create your own library</h1>
         <h3>Your books deserve it!</h3>
-        <div css={registerAndLoginStyles}>
+        <div>
           <div>
             <p>
               Create your own profile and use all features of the library like{' '}
