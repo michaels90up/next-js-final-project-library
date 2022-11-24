@@ -25,14 +25,19 @@ export default function Profile() {
           <div>
             <ul>Visit the library</ul>
             <Link href="/books">
-              <Image src="/library-books.jpg" width={200} height={200} alt="" />
+              <Image
+                src="/library-books.jpeg"
+                width={200}
+                height={200}
+                alt=""
+              />
             </Link>
           </div>
           <div>
             <ul>See all categories</ul>
             <Link href="/categories">
               <Image
-                src="/library-categories.jpg"
+                src="/library-categories.jpeg"
                 width={200}
                 height={200}
                 alt=""
@@ -43,7 +48,7 @@ export default function Profile() {
             <ul>Create booklists</ul>
             <Link href="/booklists">
               <Image
-                src="/library-booklists.jpg"
+                src="/library-booklists.jpeg"
                 width={200}
                 height={200}
                 alt=""

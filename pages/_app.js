@@ -31,8 +31,9 @@ function MyApp({ Component, pageProps }) {
             box-sizing: border-box;
           }
           body {
-            font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-            font-size: 16px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman',
+              serif;
+            font-size: 20px;
             background-color: #fffcf1;
             a {
               text-decoration: none;

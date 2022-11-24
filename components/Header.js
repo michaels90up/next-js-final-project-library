@@ -39,7 +39,7 @@ export default function Header(props) {
     <header>
       <nav css={navStyles}>
         <div>
-          <Image src="/logo.jpg" width={120} height={70} alt="library logo" />
+          <Image src="/logo.jpeg" width={120} height={70} alt="library logo" />
           <Link href="/">Home</Link>
           <Link href="/books">Books</Link>
           <Link href="/categories">Categories</Link>

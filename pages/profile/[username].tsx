@@ -40,14 +40,14 @@ export default function UserProfile(props: Props) {
         <div>
           <ul>Go to the library</ul>
           <Link href="/books">
-            <Image src="/library-books.jpg" width={200} height={200} alt="" />
+            <Image src="/library-books.jpeg" width={200} height={200} alt="" />
           </Link>
         </div>
         <div>
           <ul>See all categories</ul>
           <Link href="/categories">
             <Image
-              src="/library-categories.jpg"
+              src="/library-categories.jpeg"
               width={200}
               height={200}
               alt=""
@@ -58,7 +58,7 @@ export default function UserProfile(props: Props) {
           <ul>Go to booklists</ul>
           <Link href="/booklists">
             <Image
-              src="/library-booklists.jpg"
+              src="/library-booklists.jpeg"
               width={200}
               height={200}
               alt=""
