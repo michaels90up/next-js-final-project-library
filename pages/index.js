@@ -26,8 +26,10 @@ export default function Home() {
               <p>You have already created your profile? So just log in: </p>
               <Button
                 variant="outlined"
-                href="#outlined-buttons"
-                color="secondary"
+                sx={{
+                  backgroundColor: '#82AE50',
+                  borderColor: '#82AE50',
+                }}
               >
                 <Link href="/login">Log In</Link>
               </Button>
@@ -41,8 +43,10 @@ export default function Home() {
               </p>
               <Button
                 variant="outlined"
-                href="#outlined-buttons"
-                color="secondary"
+                sx={{
+                  backgroundColor: '#BEA6A1',
+                  borderColor: '#BEA6A1',
+                }}
               >
                 <Link href="/register">Register</Link>
               </Button>

@@ -215,7 +215,7 @@ export default function BooksAdmin(props: Props) {
       <Button
         variant="contained"
         color="success"
-        size="small"
+        size="medium"
         onClick={async () => {
           await createBookFromApi();
           setTitleInput('');
@@ -281,7 +281,6 @@ export default function BooksAdmin(props: Props) {
               {!isBookOnEdit ? (
                 <Button
                   variant="outlined"
-                  href="#outlined-buttons"
                   color="secondary"
                   size="small"
                   onClick={() => {
@@ -297,8 +296,7 @@ export default function BooksAdmin(props: Props) {
                 </Button>
               ) : (
                 <Button
-                  variant="outlined"
-                  href="#outlined-buttons"
+                  variant="contained"
                   color="secondary"
                   size="small"
                   onClick={async () => {
@@ -310,8 +308,7 @@ export default function BooksAdmin(props: Props) {
                 </Button>
               )}
               <Button
-                variant="outlined"
-                href="#outlined-buttons"
+                variant="contained"
                 color="error"
                 size="small"
                 onClick={() => deleteBookFromApiById(book.id)}
@@ -327,7 +324,6 @@ export default function BooksAdmin(props: Props) {
       {books.length < 11 && (
         <Button
           variant="outlined"
-          href="#outlined-buttons"
           color="secondary"
           size="small"
           onClick={() => getBooksFromApi()}
