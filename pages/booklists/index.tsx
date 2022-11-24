@@ -13,8 +13,7 @@ export default function Booklists() {
         <meta name="" content="" />
       </Head>
       <main css={mainStyles}>
-        <h3>Your Booklists:</h3>
-        <p>Create a new booklist</p>
+        <h3>All Booklists:</h3>
       </main>
     </>
   );

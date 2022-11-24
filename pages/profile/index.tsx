@@ -25,15 +25,25 @@ export default function Profile() {
         <div css={divStyles}>
           <ul>Go to the library</ul>
           <Link href="/books">
-            <Image src="/logo.jpg" width={200} height={200} alt="" />
+            <Image src="/library-books.jpg" width={200} height={200} alt="" />
           </Link>
           <ul>Look for categories</ul>
           <Link href="/categories">
-            <Image src="/logo.jpg" width={200} height={200} alt="" />
+            <Image
+              src="/library-categories.jpg"
+              width={200}
+              height={200}
+              alt=""
+            />
           </Link>
           <ul>Go to booklists</ul>
           <Link href="/booklists">
-            <Image src="/logo.jpg" width={200} height={200} alt="" />
+            <Image
+              src="/library-booklists.jpg"
+              width={200}
+              height={200}
+              alt=""
+            />
           </Link>
         </div>
       </main>

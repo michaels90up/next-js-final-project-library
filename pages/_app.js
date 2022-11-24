@@ -32,7 +32,11 @@ function MyApp({ Component, pageProps }) {
           }
           body {
             font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-            background-image: url('');
+            background-color: #fffcf1;
+            a {
+              text-decoration: none;
+              color: black;
+            }
           }
         `}
       />

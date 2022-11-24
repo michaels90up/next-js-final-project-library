@@ -1,10 +1,18 @@
 import { css } from '@emotion/react';
+import Button from '@mui/material/Button';
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { getValidSessionByToken } from '../database/sessions';
 import { LoginResponseBody } from './api/login';
+
+const loginInputStyles = css`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-size: 18px;
+`;
 
 type Props = {
   refreshUserProfile: () => Promise<void>;
@@ -76,32 +84,39 @@ export default function Login(props: Props) {
           </p>
         );
       })}
-      <label>
-        username
-        <input
-          value={username}
-          onChange={(event) => {
-            setUsername(event.currentTarget.value.toLowerCase());
+      <div css={loginInputStyles}>
+        <label>
+          Username
+          <input
+            value={username}
+            onChange={(event) => {
+              setUsername(event.currentTarget.value.toLowerCase());
+            }}
+          />
+        </label>
+        <br />
+        <label>
+          Password{' '}
+          <input
+            value={password}
+            onChange={(event) => {
+              setPassword(event.currentTarget.value);
+            }}
+          />
+        </label>
+      </div>
+      <div>
+        <Button
+          variant="contained"
+          color="success"
+          size="small"
+          onClick={async () => {
+            await loginHandler();
           }}
-        />
-      </label>
-      <br />
-      <label>
-        password
-        <input
-          value={password}
-          onChange={(event) => {
-            setPassword(event.currentTarget.value);
-          }}
-        />
-      </label>
-      <button
-        onClick={async () => {
-          await loginHandler();
-        }}
-      >
-        Login
-      </button>
+        >
+          Login
+        </Button>
+      </div>
     </>
   );
 }

@@ -12,7 +12,9 @@ export default function Categories() {
         <title>Categories</title>
         <meta name="" content="" />
       </Head>
-      <main css={mainStyles}>Categories</main>
+      <main css={mainStyles}>
+        <h3>All Categories:</h3>
+      </main>
     </>
   );
 }

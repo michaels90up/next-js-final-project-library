@@ -3,20 +3,31 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const navStyles = css`
+  display: flex;
   background-color: #f5b87f;
   padding: 5px;
   display: flex;
+  justify-content: start;
   height: 80px;
   width: auto;
-  > a + a {
-    margin-left: 40px;
-  }
+
   > div {
     display: flex;
-    justify-content: start;
     align-items: end;
-    gap: 30px;
+    gap: 20px;
+    font-size: 20px;
+
+    a {
+      :hover {
+        color: white;
+      }
+    }
   }
+`;
+
+const logoutStyles = css`
+  margin-left: 670px;
+  gap: 30px;
 `;
 
 function Anchor({ children, ...restProps }) {
@@ -28,17 +39,26 @@ export default function Header(props) {
     <header>
       <nav css={navStyles}>
         <div>
-          <Image src="/logo.jpg" width={120} height={70} alt="library logo" />
+          <Image
+            style={{ textDecoration: 'none' }}
+            src="/logo.jpg"
+            width={120}
+            height={70}
+            alt="library logo"
+          />
           <Link href="/">Home</Link>
           <Link href="/books">Books</Link>
           <Link href="/categories">Categories</Link>
           <Link href="/booklists">Booklists</Link>
-          <Link href="/profile">Profile</Link>
-          {/* {props.user && props.user.username} */}
+          <div css={logoutStyles}>
+            {/* {props.user && props.user.username} */}
+            <Link href="/profile">Profile</Link>
+          </div>
+
           {props.user ? (
             <Anchor
               css={css`
-                margin-left: 10px;
+                margin-left: 0px;
               `}
               href="/logout"
             >
