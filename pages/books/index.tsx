@@ -15,6 +15,12 @@ const divStyles = css`
 
 const fragmentStyles = css`
   display: flex;
+  margin: 10px;
+`;
+
+const titleStyles = css`
+  display: flex;
+  margin: 0px;
 `;
 
 type Props =
@@ -230,7 +236,7 @@ export default function BooksAdmin(props: Props) {
         return (
           <Fragment key={book.id}>
             <div css={fragmentStyles}>
-              <Link href={`/books/${book.id}`} css={fragmentStyles}>
+              <Link css={titleStyles} href={`/books/${book.id}`}>
                 <input
                   value={isBookOnEdit ? titleOnEditInput : book.title}
                   disabled={!isBookOnEdit}

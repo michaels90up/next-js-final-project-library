@@ -16,11 +16,18 @@ type Props =
 
 const singleBookStyles = css`
   display: flex;
-  width: 500px;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  margin: auto;
+  margin-top: 100px;
+  font-size: 18px;
+  gap: 15px;
+  background-color: white;
+  height: 250px;
+  width: 400px;
   border: solid;
-  border-color: #f5b87f;
+  border-color: white;
+  box-shadow: 2px 1px 2px 2px grey;
 `;
 
 export default function SingleBook(props: Props) {
@@ -46,15 +53,16 @@ export default function SingleBook(props: Props) {
           content={`${props.book.title} from ${props.book.author}`}
         />
       </Head>
-
-      <h2>Title: {props.book.title}</h2>
       <div css={singleBookStyles}>
-        <div>Author: {props.book.author}</div>
-        <div>Year: {props.book.year}</div>
-        <div>Category: {props.book.category}</div>
-        <div>Language: {props.book.language}</div>
+        <h2>Title: {props.book.title}</h2>
+        <div>
+          <div>Author: {props.book.author}</div>
+          <div>Year: {props.book.year}</div>
+          <div>Category: {props.book.category}</div>
+          <div>Language: {props.book.language}</div>
+        </div>
+        {/* <button onClick={() => deleteBookFromApiById(book.id)}>X</button>*/}
       </div>
-      {/* <button onClick={() => deleteBookFromApiById(book.id)}>X</button>*/}
     </div>
   );
 }
