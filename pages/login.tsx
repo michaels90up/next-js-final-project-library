@@ -10,8 +10,17 @@ import { LoginResponseBody } from './api/login';
 const loginInputStyles = css`
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  align-items: center;
+  margin: auto;
+  margin-top: 100px;
   font-size: 18px;
+  gap: 15px;
+  background-color: white;
+  height: 250px;
+  width: 400px;
+  border: solid;
+  border-color: white;
+  box-shadow: 2px 1px 2px 2px grey;
 `;
 
 type Props = {
@@ -69,53 +78,56 @@ export default function Login(props: Props) {
         <title>Login</title>
         <meta name="description" content="Login new user" />
       </Head>
-      <h2>Login</h2>
-      {errors.map((error) => {
-        return (
-          <p
-            css={css`
-              background-color: red;
-              color: white;
-              padding: 5px;
-            `}
-            key={error.message}
-          >
-            ERROR: {error.message}
-          </p>
-        );
-      })}
       <div css={loginInputStyles}>
-        <label>
-          Username
-          <input
-            value={username}
-            onChange={(event) => {
-              setUsername(event.currentTarget.value.toLowerCase());
+        <h2>Login</h2>
+        {errors.map((error) => {
+          return (
+            <p
+              css={css`
+                background-color: red;
+                color: white;
+                padding: 5px;
+              `}
+              key={error.message}
+            >
+              ERROR: {error.message}
+            </p>
+          );
+        })}
+        <div>
+          <label>
+            Username
+            <input
+              value={username}
+              onChange={(event) => {
+                setUsername(event.currentTarget.value.toLowerCase());
+              }}
+            />
+          </label>
+          <br />
+          <br />
+          <label>
+            Password{' '}
+            <input
+              value={password}
+              onChange={(event) => {
+                setPassword(event.currentTarget.value);
+              }}
+            />
+          </label>
+        </div>
+        <div>
+          <Button
+            variant="contained"
+            color="success"
+            size="small"
+            onClick={async () => {
+              await loginHandler();
             }}
-          />
-        </label>
-        <br />
-        <label>
-          Password{' '}
-          <input
-            value={password}
-            onChange={(event) => {
-              setPassword(event.currentTarget.value);
-            }}
-          />
-        </label>
-      </div>
-      <div>
-        <Button
-          variant="contained"
-          color="success"
-          size="small"
-          onClick={async () => {
-            await loginHandler();
-          }}
-        >
-          Login
-        </Button>
+          >
+            Login
+          </Button>
+        </div>
       </div>
     </>
   );

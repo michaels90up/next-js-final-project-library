@@ -6,10 +6,8 @@ import Link from 'next/link';
 const registerAndLoginStyles = css`
   display: flex;
   flex-direction: column;
-
-  > div + div {
-    margin-top: 20px;
-  }
+  align-items: center;
+  gap: 20px;
 `;
 
 export default function Home() {
@@ -19,33 +17,36 @@ export default function Home() {
         <title>Private Library</title>
         <meta name="description" content="" />
       </Head>
-      <main css={registerAndLoginStyles}>
-        <h1>Create your own library</h1>
-        <h3>Your books deserve it!</h3>
-        <div>
+      <main>
+        <div css={registerAndLoginStyles}>
+          <h1>Create your own library</h1>
+          <h3>Your books deserve it!</h3>
           <div>
-            <p>
-              Create your own profile and use all features of the library like{' '}
-              <br />
-              adding your books and creating individual booklists.
-            </p>
-            <Button
-              variant="outlined"
-              href="#outlined-buttons"
-              color="secondary"
-            >
-              <Link href="/register">Register</Link>
-            </Button>
-          </div>
-          <div>
-            <p>You have already created your profile? So just log in: </p>
-            <Button
-              variant="outlined"
-              href="#outlined-buttons"
-              color="secondary"
-            >
-              <Link href="/login">Log In</Link>
-            </Button>
+            <div>
+              <p>You have already created your profile? So just log in: </p>
+              <Button
+                variant="outlined"
+                href="#outlined-buttons"
+                color="secondary"
+              >
+                <Link href="/login">Log In</Link>
+              </Button>
+            </div>
+            <br />
+            <div>
+              <p>
+                Create your own profile and use all features of the library like{' '}
+                <br />
+                adding your books and creating individual booklists.
+              </p>
+              <Button
+                variant="outlined"
+                href="#outlined-buttons"
+                color="secondary"
+              >
+                <Link href="/register">Register</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </main>

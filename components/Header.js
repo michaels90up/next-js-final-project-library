@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const navStyles = css`
   display: flex;
-  background-color: #f5b87f;
+  background-color: #f47f6c;
   padding: 5px;
   display: flex;
   justify-content: start;
@@ -13,9 +13,9 @@ const navStyles = css`
 
   > div {
     display: flex;
-    align-items: end;
-    gap: 20px;
-    font-size: 20px;
+    align-items: center;
+    gap: 30px;
+    font-size: 22px;
 
     a {
       :hover {
@@ -26,7 +26,7 @@ const navStyles = css`
 `;
 
 const logoutStyles = css`
-  margin-left: 670px;
+  margin-left: 520px;
   gap: 30px;
 `;
 
@@ -39,13 +39,7 @@ export default function Header(props) {
     <header>
       <nav css={navStyles}>
         <div>
-          <Image
-            style={{ textDecoration: 'none' }}
-            src="/logo.jpg"
-            width={120}
-            height={70}
-            alt="library logo"
-          />
+          <Image src="/logo.jpg" width={120} height={70} alt="library logo" />
           <Link href="/">Home</Link>
           <Link href="/books">Books</Link>
           <Link href="/categories">Categories</Link>
@@ -54,21 +48,7 @@ export default function Header(props) {
             {/* {props.user && props.user.username} */}
             <Link href="/profile">Profile</Link>
           </div>
-
-          {props.user ? (
-            <Anchor
-              css={css`
-                margin-left: 0px;
-              `}
-              href="/logout"
-            >
-              Logout
-            </Anchor>
-          ) : (
-            <div />
-          )}
-
-          {/* <Link href="/logout">Logout</Link> */}
+          {props.user ? <Anchor href="/logout">Logout</Anchor> : <div />}
         </div>
       </nav>
     </header>

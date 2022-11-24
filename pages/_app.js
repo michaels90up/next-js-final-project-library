@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
           }
           body {
             font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-            font-size: 17px;
+            font-size: 16px;
             background-color: #fffcf1;
             a {
               text-decoration: none;

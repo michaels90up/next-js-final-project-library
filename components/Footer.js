@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 const footerStyles = css`
-  background-color: #f5b87f;
+  background-color: #f47f6c;
   padding: 5px;
   height: 45px;
   width: auto;
