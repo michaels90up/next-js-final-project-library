@@ -20,6 +20,7 @@ const divStylesSecondRow = css`
   align-items: center;
   justify-content: space-around;
   margin: 20px;
+  margin-bottom: 100px;
 `;
 
 export default function Categories() {
