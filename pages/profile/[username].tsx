@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getUserByUsername, User } from '../../database/users';
 
-const divStyles = css`
+const profileStyles = css`
   display: flex;
   justify-content: space-evenly;
 `;
@@ -34,9 +34,9 @@ export default function UserProfile(props: Props) {
         <title>Personal Profile</title>
         <meta name="description" content="Biography of the person" />
       </Head>
-      <h1>Personal Profile</h1>
-      <h2>Username: {props.user.username}</h2>
-      <div css={divStyles}>
+      <h2>Personal Profile</h2>
+      <h4>Username: {props.user.username}</h4>
+      <div css={profileStyles}>
         <div>
           <ul>Go to the library</ul>
           <Link href="/books">
